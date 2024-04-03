@@ -1,11 +1,20 @@
+import { useState } from "react";
 import { Button, Col, Form, Row, Stack } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Select from "react-select";
+import { Tag } from "./App";
+
+type NoteListProps = {
+    availableTags: Tag[]
+}
+
+export function NoteList({ availableTags }: NoteListProps) {
+
+    const [selectedTags, setSelectedTags] = useState<Tag[]>([])
+    const [title, setTitle] = useState('')
 
 
-export function NoteList() {
-
-    return 
+    return (
         <>
             <Row>
                 <Col><h1>Notes</h1></Col>
@@ -23,7 +32,8 @@ export function NoteList() {
                     <Col>
                     <Form.Group controlId="title">
                         <Form.Label>Title</Form.Label>
-                        <Form.Control type="text" />
+                        <Form.Control type="text" value={title}
+                        onChange={e => setTitle(e.target.value)}/>
                     </Form.Group>
                     </Col>
                     <Col>
@@ -46,4 +56,5 @@ export function NoteList() {
                 </Row>
             </Form>
         </>
+    )
 }
