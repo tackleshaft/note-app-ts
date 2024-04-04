@@ -1,7 +1,7 @@
 import { Badge, Button, Col, Row, Stack } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useNote } from "./NoteLayout"
-// import ReactMarkdown from "react-markdown"
+import ReactMarkdown from "react-markdown"
 
 type NoteProps = {
   onDelete: (id: string) => void
@@ -46,7 +46,7 @@ export function Note({ onDelete }: NoteProps) {
           </Stack>
         </Col>
       </Row>
-      {/* <ReactMarkdown>{note.markdown}</ReactMarkdown> */}
+      <ReactMarkdown>{note.markdown}</ReactMarkdown>
     </>
   )
 }
